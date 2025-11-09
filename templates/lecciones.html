@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecciones - Aprende Maya K'iche'</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a73e8, #4285f4);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: white;
+            margin: 0;
+        }
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: 10px 10px 0 0;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        .tab-btn {
+            flex: 1;
+            background: #f0f0f0;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .tab-btn.active {
+            background: #1a73e8;
+            color: white;
+        }
+        .tab-content {
+            background: white;
+            border-radius: 0 0 10px 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .leccion-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #1a73e8;
+        }
+        .leccion-titulo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a73e8;
+            margin-bottom: 5px;
+        }
+        .leccion-info {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .btn-iniciar {
+            background: linear-gradient(135deg, #1a73e8, #4285f4);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(26, 115, 232, 0.3);
+        }
+        .btn-iniciar:hover {
+            background: linear-gradient(135deg, #1557b0, #3367d6);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.4);
+        }
+        .alert {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .alert.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Lecciones de Maya K'iche'</h1>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Cerrar Sesión</a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('basico')">Básico</button>
+        <button class="tab-btn" onclick="showTab('intermedio')">Intermedio</button>
+        <button class="tab-btn" onclick="showTab('avanzado')">Avanzado</button>
+    </div>
+
+    <div class="tab-content">
+        <div id="basico" class="tab-panel">
+            {% for leccion in lecciones.basico %}
+            <div class="leccion-card">
+                <div class="leccion-titulo">{{ leccion.titulo }}</div>
+                <div class="leccion-info">Tipo: {{ leccion.tipo }} | Palabras: {{ leccion.contenido|length }}</div>
+                <a href="{{ url_for('iniciar_leccion', leccion_id=leccion.id) }}" class="btn-iniciar">Iniciar Lección</a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="intermedio" class="tab-panel" style="display: none;">
+            {% for leccion in lecciones.intermedio %}
+            <div class="leccion-card">
+                <div class="leccion-titulo">{{ leccion.titulo }}</div>
+                <div class="leccion-info">Tipo: {{ leccion.tipo }} | Palabras: {{ leccion.contenido|length }}</div>
+                <a href="{{ url_for('iniciar_leccion', leccion_id=leccion.id) }}" class="btn-iniciar">Iniciar Lección</a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="avanzado" class="tab-panel" style="display: none;">
+            {% for leccion in lecciones.avanzado %}
+            <div class="leccion-card">
+                <div class="leccion-titulo">{{ leccion.titulo }}</div>
+                <div class="leccion-info">Tipo: {{ leccion.tipo }} | Palabras: {{ leccion.contenido|length }}</div>
+                <a href="{{ url_for('iniciar_leccion', leccion_id=leccion.id) }}" class="btn-iniciar">Iniciar Lección</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab panels
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.style.display = 'none');
+
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab panel
+            document.getElementById(tabName).style.display = 'block';
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

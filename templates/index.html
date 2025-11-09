@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Maya K'iche'</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a73e8, #4285f4);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #1a73e8, #4285f4);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+            text-align: center;
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #1557b0, #3367d6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+        }
+        .btn.secondary {
+            background: linear-gradient(135deg, #34a853, #4caf50);
+        }
+        .btn.secondary:hover {
+            background: linear-gradient(135deg, #2d8f47, #45a049);
+        }
+        .btn.tertiary {
+            background: linear-gradient(135deg, #ea4335, #ff6b6b);
+        }
+        .btn.tertiary:hover {
+            background: linear-gradient(135deg, #d33b2c, #ff5252);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aprende Maya K'iche'</h1>
+        <p>Sumérgete en la lengua y cultura Maya K'iche'</p>
+        <div class="buttons">
+            <a href="{{ url_for('registro') }}" class="btn">Nuevo Usuario</a>
+            <a href="{{ url_for('login') }}" class="btn secondary">Usuario Existente</a>
+            <a href="{{ url_for('lecciones') }}" class="btn">Lecciones</a>
+        </div>
+    </div>
+</body>
+</html>

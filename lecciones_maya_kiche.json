@@ -1,0 +1,97 @@
+{
+  "basico": [
+    {
+      "id": 1,
+      "titulo": "Saludos Básicos",
+      "tipo": "vocabulario",
+      "contenido": [
+        {
+          "maya": "Saqarik",
+          "espanol": "Buenos días",
+          "imagen": "sol.png"
+        },
+        {
+          "maya": "Xqa q'ij",
+          "espanol": "Buenas tardes",
+          "imagen": "tarde.png"
+        },
+        {
+          "maya": "Xokaq'ab'",
+          "espanol": "Buenas noches",
+          "imagen": "noche.png"
+        },
+        {
+          "maya": "Utz awach?",
+          "espanol": "¿Cómo estás?",
+          "imagen": "saludo.png"
+        },
+        {
+          "maya": "Utz tinimit",
+          "espanol": "Estoy bien",
+          "imagen": "bien.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Números 1-10",
+      "tipo": "numeros",
+      "contenido": [
+        {
+          "maya": "Jun",
+          "espanol": "Uno",
+          "imagen": "1.png"
+        },
+        {
+          "maya": "Kieb'",
+          "espanol": "Dos",
+          "imagen": "2.png"
+        },
+        {
+          "maya": "Oxib'",
+          "espanol": "Tres",
+          "imagen": "3.png"
+        },
+        {
+          "maya": "Kajib'",
+          "espanol": "Cuatro",
+          "imagen": "4.png"
+        },
+        {
+          "maya": "Job'",
+          "espanol": "Cinco",
+          "imagen": "5.png"
+        }
+      ]
+    }
+  ],
+  "intermedio": [
+    {
+      "id": 3,
+      "titulo": "Familia",
+      "tipo": "vocabulario",
+      "contenido": [
+        {
+          "maya": "Na",
+          "espanol": "Madre",
+          "imagen": "madre.png"
+        },
+        {
+          "maya": "Te",
+          "espanol": "Padre",
+          "imagen": "padre.png"
+        },
+        {
+          "maya": "Ali",
+          "espanol": "Hijo/Hija",
+          "imagen": "hijo.png"
+        },
+        {
+          "maya": "Achijab'",
+          "espanol": "Hermano",
+          "imagen": "hermano.png"
+        }
+      ]
+    }
+  ]
+}

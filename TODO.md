@@ -1,0 +1,4 @@
+- [x] Modificar el método verificar_respuesta en kiche.py para terminar la lección al alcanzar 100 puntos
+- [x] Evitar repetición de preguntas en la misma lección
+- [x] Convertir la aplicación de Tkinter a una versión web usando Flask
+- [x] Optimizar diseño para móviles y variar colores de botones

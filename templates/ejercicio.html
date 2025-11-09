@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio - Aprende Maya K'iche'</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a73e8, #4285f4);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .puntos {
+            color: #1a73e8;
+        }
+        .vidas {
+            color: #e74c3c;
+        }
+        .pregunta {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .pregunta h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .palabra {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a73e8;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .opciones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .opcion-btn {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border: 2px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .opcion-btn:hover {
+            background: linear-gradient(135deg, #e9ecef, #dee2e6);
+            border-color: #1a73e8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .saltar-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .saltar-btn:hover {
+            background: #5a6268;
+        }
+        .volver-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .volver-btn:hover {
+            background: #218838;
+        }
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .alert.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="puntos">Puntos: {{ puntos }}</div>
+            <div class="vidas">Vidas: {{ vidas }}</div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="pregunta">
+            <h2>¿Cómo se dice en Maya K'iche'?</h2>
+            <div class="palabra">{{ palabra.espanol }}</div>
+        </div>
+
+        <form method="POST">
+            <input type="hidden" name="correcta" value="{{ palabra.maya }}">
+            <div class="opciones">
+                {% for opcion in opciones %}
+                <button type="submit" name="respuesta" value="{{ opcion }}" class="opcion-btn">
+                    {{ opcion }}
+                </button>
+                {% endfor %}
+            </div>
+        </form>
+
+        <a href="{{ url_for('ejercicio') }}" class="saltar-btn">Saltar</a>
+        <a href="{{ url_for('lecciones') }}" class="volver-btn">Volver a Lecciones</a>
+    </div>
+</body>
+</html>
