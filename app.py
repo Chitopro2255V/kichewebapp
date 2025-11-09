@@ -4,8 +4,10 @@ import random
 import sqlite3
 from datetime import datetime
 
+import os
+
 app = Flask(__name__)
-app.secret_key = 'tu_clave_secreta_aqui'  # Cambia esto por una clave segura
+app.secret_key = os.environ.get('SECRET_KEY', 'tu_clave_secreta_aqui')  # Cambia esto por una clave segura
 
 class AprendizajeMayaKicheWeb:
     def __init__(self):
