@@ -61,13 +61,102 @@
           "maya": "Job'",
           "espanol": "Cinco",
           "imagen": "5.png"
+        },
+        {
+          "maya": "Waqlajuj",
+          "espanol": "Seis",
+          "imagen": "6.png"
+        },
+        {
+          "maya": "Wuqub'",
+          "espanol": "Siete",
+          "imagen": "7.png"
+        },
+        {
+          "maya": "Wajxaqib'",
+          "espanol": "Ocho",
+          "imagen": "8.png"
+        },
+        {
+          "maya": "B'elejeb'",
+          "espanol": "Nueve",
+          "imagen": "9.png"
+        },
+        {
+          "maya": "Lajuj",
+          "espanol": "Diez",
+          "imagen": "10.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "Colores Básicos",
+      "tipo": "vocabulario",
+      "contenido": [
+        {
+          "maya": "Q'an",
+          "espanol": "Amarillo",
+          "imagen": "amarillo.png"
+        },
+        {
+          "maya": "Q'eq",
+          "espanol": "Negro",
+          "imagen": "negro.png"
+        },
+        {
+          "maya": "Saq",
+          "espanol": "Blanco",
+          "imagen": "blanco.png"
+        },
+        {
+          "maya": "Rax",
+          "espanol": "Verde",
+          "imagen": "verde.png"
+        },
+        {
+          "maya": "Kaq",
+          "espanol": "Rojo",
+          "imagen": "rojo.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "titulo": "Animales Comunes",
+      "tipo": "vocabulario",
+      "contenido": [
+        {
+          "maya": "Tz'i'",
+          "espanol": "Perro",
+          "imagen": "perro.png"
+        },
+        {
+          "maya": "Mee'",
+          "espanol": "Gato",
+          "imagen": "gato.png"
+        },
+        {
+          "maya": "Kej",
+          "espanol": "Caballo",
+          "imagen": "caballo.png"
+        },
+        {
+          "maya": "Ak'",
+          "espanol": "Gallina",
+          "imagen": "gallina.png"
+        },
+        {
+          "maya": "Ch'o",
+          "espanol": "Cerdo",
+          "imagen": "cerdo.png"
         }
       ]
     }
   ],
   "intermedio": [
     {
-      "id": 3,
+      "id": 5,
       "titulo": "Familia",
       "tipo": "vocabulario",
       "contenido": [
@@ -90,6 +179,146 @@
           "maya": "Achijab'",
           "espanol": "Hermano",
           "imagen": "hermano.png"
+        },
+        {
+          "maya": "Ixöq",
+          "espanol": "Mujer",
+          "imagen": "mujer.png"
+        },
+        {
+          "maya": "Achi",
+          "espanol": "Hombre",
+          "imagen": "hombre.png"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "titulo": "Comida y Bebida",
+      "tipo": "vocabulario",
+      "contenido": [
+        {
+          "maya": "Wa",
+          "espanol": "Comida",
+          "imagen": "comida.png"
+        },
+        {
+          "maya": "Atz'am",
+          "espanol": "Sal",
+          "imagen": "sal.png"
+        },
+        {
+          "maya": "Q'or",
+          "espanol": "Maíz",
+          "imagen": "maiz.png"
+        },
+        {
+          "maya": "Ja'",
+          "espanol": "Agua",
+          "imagen": "agua.png"
+        },
+        {
+          "maya": "Kape",
+          "espanol": "Café",
+          "imagen": "cafe.png"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "titulo": "Verbos Básicos",
+      "tipo": "verbos",
+      "contenido": [
+        {
+          "maya": "B'in",
+          "espanol": "Ir",
+          "imagen": "ir.png"
+        },
+        {
+          "maya": "Pet",
+          "espanol": "Venir",
+          "imagen": "venir.png"
+        },
+        {
+          "maya": "Tij",
+          "espanol": "Comer",
+          "imagen": "comer.png"
+        },
+        {
+          "maya": "Qu",
+          "espanol": "Beber",
+          "imagen": "beber.png"
+        },
+        {
+          "maya": "War",
+          "espanol": "Dormir",
+          "imagen": "dormir.png"
+        }
+      ]
+    }
+  ],
+  "avanzado": [
+    {
+      "id": 8,
+      "titulo": "Naturaleza",
+      "tipo": "vocabulario",
+      "contenido": [
+        {
+          "maya": "Juyub'",
+          "espanol": "Montaña",
+          "imagen": "montana.png"
+        },
+        {
+          "maya": "Palow",
+          "espanol": "Mar",
+          "imagen": "mar.png"
+        },
+        {
+          "maya": "Che'",
+          "espanol": "Árbol",
+          "imagen": "arbol.png"
+        },
+        {
+          "maya": "Ulew",
+          "espanol": "Tierra",
+          "imagen": "tierra.png"
+        },
+        {
+          "maya": "Q'ij",
+          "espanol": "Sol",
+          "imagen": "sol.png"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "titulo": "Emociones",
+      "tipo": "vocabulario",
+      "contenido": [
+        {
+          "maya": "K'ix",
+          "espanol": "Miedo",
+          "imagen": "miedo.png"
+        },
+        {
+          "maya": "K'aslik",
+          "espanol": "Alegría",
+          "imagen": "alegria.png"
+        },
+        {
+          "maya": "B'is",
+          "espanol": "Tristeza",
+          "imagen": "tristeza.png"
+        },
+        {
+          "maya": "Chaj",
+          "espanol": "Enojo",
+          "imagen": "enojo.png"
+        },
+        {
+          "maya": "Loq'",
+          "espanol": "Amor",
+          "imagen": "amor.png"
         }
       ]
     }

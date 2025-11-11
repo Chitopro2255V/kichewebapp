@@ -242,5 +242,25 @@ def logout():
     session.clear()
     return redirect(url_for('index'))
 
+@app.route('/eliminar_usuario', methods=['POST'])
+def eliminar_usuario():
+    """Eliminar usuario"""
+    if 'usuario_id' not in session:
+        return redirect(url_for('index'))
+
+    usuario_id = session['usuario_id']
+
+    # Eliminar progreso del usuario
+    app_maya.c.execute("DELETE FROM progreso WHERE usuario_id = ?", (usuario_id,))
+
+    # Eliminar usuario
+    app_maya.c.execute("DELETE FROM usuarios WHERE id = ?", (usuario_id,))
+
+    app_maya.conn.commit()
+
+    session.clear()
+    flash("Usuario eliminado correctamente", "success")
+    return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(debug=True)

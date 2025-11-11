@@ -22,6 +22,10 @@
             color: white;
             margin: 0;
         }
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
         .logout-btn {
             background: rgba(255,255,255,0.2);
             color: white;
@@ -33,6 +37,18 @@
         }
         .logout-btn:hover {
             background: rgba(255,255,255,0.3);
+        }
+        .delete-btn {
+            background: rgba(255,0,0,0.2);
+            color: white;
+            border: 1px solid red;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .delete-btn:hover {
+            background: rgba(255,0,0,0.3);
         }
         .tabs {
             display: flex;
@@ -117,7 +133,12 @@
 <body>
     <div class="header">
         <h1>Lecciones de Maya K'iche'</h1>
-        <a href="{{ url_for('logout') }}" class="logout-btn">Cerrar Sesión</a>
+        <div class="header-buttons">
+            <form method="POST" action="{{ url_for('eliminar_usuario') }}" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu usuario? Esta acción no se puede deshacer.');">
+                <button type="submit" class="delete-btn">Eliminar Usuario</button>
+            </form>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Cerrar Sesión</a>
+        </div>
     </div>
 
     {% with messages = get_flashed_messages(with_categories=true) %}

@@ -59,6 +59,15 @@
             gap: 15px;
             margin-bottom: 20px;
         }
+        @media (max-width: 600px) {
+            .opciones {
+                grid-template-columns: 1fr;
+            }
+            .opcion-btn {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
         .opcion-btn {
             background: linear-gradient(135deg, #ffffff, #f8f9fa);
             border: 2px solid #ddd;
@@ -76,17 +85,21 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
+        .botones {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
         .saltar-btn {
             background: #6c757d;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 12px;
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
-            width: 100%;
+            flex: 1;
             text-align: center;
             transition: background 0.3s;
         }
@@ -97,15 +110,13 @@
             background: #28a745;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 12px;
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
-            width: 100%;
+            flex: 1;
             text-align: center;
-            margin-top: 10px;
             transition: background 0.3s;
         }
         .volver-btn:hover {
@@ -161,8 +172,10 @@
             </div>
         </form>
 
-        <a href="{{ url_for('ejercicio') }}" class="saltar-btn">Saltar</a>
-        <a href="{{ url_for('lecciones') }}" class="volver-btn">Volver a Lecciones</a>
+        <div class="botones">
+            <a href="{{ url_for('ejercicio') }}" class="saltar-btn">Saltar</a>
+            <a href="{{ url_for('lecciones') }}" class="volver-btn">Volver a Lecciones</a>
+        </div>
     </div>
 </body>
 </html>
