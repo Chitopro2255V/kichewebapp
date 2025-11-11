@@ -6,139 +6,198 @@
     <title>Ejercicio - Aprende Maya K'iche'</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a73e8, #4285f4);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffffff, #f8f9ff);
             margin: 0;
             padding: 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.1) 0%, transparent 50%);
         }
         .container {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: linear-gradient(145deg, #ffffff, #f0f4f8);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.1),
+                0 0 0 1px rgba(255,255,255,0.8);
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
         }
         .header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
-            font-size: 18px;
-            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #4a5568;
         }
         .puntos {
-            color: #1a73e8;
+            color: #48bb78;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .puntos::before {
+            content: '⭐';
         }
         .vidas {
-            color: #e74c3c;
+            color: #f56565;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .vidas::before {
+            content: '❤️';
         }
         .pregunta {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
         .pregunta h2 {
-            color: #333;
-            margin-bottom: 10px;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: 700;
         }
         .palabra {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1a73e8;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 800;
+            color: #667eea;
+            background: linear-gradient(135deg, #e6fffa, #b2f5ea);
+            padding: 20px 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 2px solid #81e6d9;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
         }
         .opciones {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 18px;
+            margin-bottom: 25px;
         }
         @media (max-width: 600px) {
             .opciones {
                 grid-template-columns: 1fr;
             }
             .opcion-btn {
-                font-size: 14px;
-                padding: 12px;
+                font-size: 16px;
+                padding: 16px;
             }
         }
         .opcion-btn {
-            background: linear-gradient(135deg, #ffffff, #f8f9fa);
-            border: 2px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 16px;
-            color: #333 !important;
+            background: linear-gradient(135deg, #ffffff, #f7fafc);
+            border: 2px solid #e2e8f0;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748 !important;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .opcion-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        .opcion-btn:hover::before {
+            left: 100%;
         }
         .opcion-btn:hover {
-            background: linear-gradient(135deg, #e9ecef, #dee2e6);
-            border-color: #1a73e8;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
         }
         .botones {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 25px;
         }
         .saltar-btn {
-            background: #6c757d;
+            background: linear-gradient(135deg, #a0aec0, #718096);
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 14px 20px;
+            border-radius: 12px;
             font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
             flex: 1;
             text-align: center;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(160, 174, 192, 0.3);
         }
         .saltar-btn:hover {
-            background: #5a6268;
+            background: linear-gradient(135deg, #718096, #4a5568);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(160, 174, 192, 0.4);
         }
         .volver-btn {
-            background: #28a745;
+            background: linear-gradient(135deg, #48bb78, #38a169);
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 14px 20px;
+            border-radius: 12px;
             font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
             flex: 1;
             text-align: center;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
         }
         .volver-btn:hover {
-            background: #218838;
+            background: linear-gradient(135deg, #38a169, #2f855a);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
         }
         .alert {
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 25px;
             text-align: center;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 16px;
         }
         .alert.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            color: #22543d;
+            border: 1px solid #68d391;
         }
         .alert.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background: linear-gradient(135deg, #fed7d7, #feb2b2);
+            color: #742a2a;
+            border: 1px solid #fc8181;
         }
     </style>
 </head>
